@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@font-face {
+    font-family: "Neue Montreal";
+    src: url("/fonts/NeueMontreal-Regular.ttf")format("truetype");
+}
+.font-neue-montreal {
+  font-family: "Neue Montreal";
+}
+
+@font-face {
+    font-family: "FoundersGrotesk";
+    src: url("/fonts/FoundersGrotesk-Semibold.ttf")format("truetype");
+}
+.font-grotesk {
+    font-family: "FoundersGrotesk";
+}
+
+@font-face {
+    font-family: "icomoon";
+    src: url("/fonts/icomoon.ttf")format("truetype");
+}
+.font-icomoon {
+    font-family: "icomoon";
+}
