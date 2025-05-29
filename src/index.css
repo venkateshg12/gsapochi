@@ -1,16 +1,19 @@
 @import "tailwindcss";
+
 @font-face {
     font-family: "Neue Montreal";
     src: url("/fonts/NeueMontreal-Regular.ttf")format("truetype");
 }
+
 .font-neue-montreal {
-  font-family: "Neue Montreal";
+    font-family: "Neue Montreal";
 }
 
 @font-face {
     font-family: "FoundersGrotesk";
     src: url("/fonts/FoundersGrotesk-Semibold.ttf")format("truetype");
 }
+
 .font-grotesk {
     font-family: "FoundersGrotesk";
 }
@@ -19,6 +22,28 @@
     font-family: "icomoon";
     src: url("/fonts/icomoon.ttf")format("truetype");
 }
+
 .font-icomoon {
     font-family: "icomoon";
+}
+
+:root {
+    background-color: #f8edeb;
+}
+
+@layer utilities {
+    .classy {
+        @apply text-[21vw] tracking-tighter font-bold mb-4 md:mb-0 md:-mt-7 leading-none;
+    }
+
+    .btn {
+        @apply outline-2 outline-black rounded-full text-[0.9rem] md:text-[1.5vw] lg:text-[1rem]  px-5 py-1;
+    }
+    .left-title {
+        @apply absolute text-[9vw]  top-1/2 z-50 translate-x-[65%] text-[#CDEA68] md:translate-x-[50%]  -translate-y-[50%];
+    }
+
+    .right-title {
+        @apply absolute
+    }
 }

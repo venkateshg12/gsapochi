@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 export const Logo = () => {
     return (
         <div>
@@ -12,4 +13,70 @@ export const Logo = () => {
     )
 }
 
-export const navItems:String[] = ["Services", "Our Work", "About Us", "Insights", "Contact Us"];
+export const navItems: String[] = ["Services", "Our Work", "About Us", "Insights", "Contact Us"];
+export const landItems: String[] = ["WE CREATE", "EYE-OPENING", "PRESENTATIONS"];
+
+interface HamburgerMenuProps {
+  size?: number;
+  color?: string;
+  strokeWidth?: number;
+  className?: string;
+}
+
+const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
+  size = 32,
+  color = '#333',
+  strokeWidth = 3,
+  className,
+}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className={`${className || "bg-gray-100"}`}>
+      <button
+        onClick={toggleMenu}
+        className={`relative p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-md transition-all duration-200 hover:bg-gray-200 ${className}`}
+        style={{ width: size + 16, height: size + 16 }}
+        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+      >
+        <div className="relative" style={{ width: size, height: size }}>
+          {/* Top line */}
+          <div
+            className="absolute left-0 rounded-full transition-all duration-300 ease-in-out"
+            style={{
+              width: size,
+              height: strokeWidth,
+              backgroundColor: color,
+              top: isOpen ? '50%' : '25%',
+              transform: isOpen 
+                ? 'translateY(-50%) rotate(45deg)' 
+                : 'translateY(-50%) rotate(0deg)',
+              transformOrigin: 'center'
+            }}
+          />
+          
+          {/* Bottom line */}
+          <div
+            className="absolute left-0 rounded-full transition-all duration-300 ease-in-out"
+            style={{
+              width: size,
+              height: strokeWidth,
+              backgroundColor: color,
+              top: isOpen ? '50%' : '75%',
+              transform: isOpen 
+                ? 'translateY(-50%) rotate(-45deg)' 
+                : 'translateY(-50%) rotate(0deg)',
+              transformOrigin: 'center'
+            }}
+          />
+        </div>
+      </button>
+    </div>
+  );
+};
+
+export default HamburgerMenu;
