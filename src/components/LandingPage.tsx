@@ -1,9 +1,10 @@
 import { landItems } from "../constants";
 import { FaArrowUp } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const LandingPage = () => {
     return (
-        <div className="h-[68vh]">
+        <div data-scroll data-scroll-section data-scroll-speed="-.2">
             <div className=" border-b w-full">
                 <div className="md:px-12 px-3 my-[18vh] md:my-[16vh]    w-full ">
                     {
@@ -11,7 +12,7 @@ const LandingPage = () => {
                             <>
                                 <div className="masker">
                                     <div className="w-fit flex items-center overflow-hidden">
-                                        {index === 1 && <div className="bg-red-400 mr-[0.4vw] min-[689px]:w-[8rem] max-[689px]:w-[17vw] rounded-md max-[689px]:h-[13vw] min-[689px]:h-[5.2rem] top-[0.4rem] relative  "></div>}
+                                        {index === 1 && <motion.div initial={{ width: 0 }} animate={{ width: "9vw" }} transition={{ ease: [0.76, 0, 0.24, 1], duration: 1, delay:0.5 }} className="bg-red-400 mr-[0.4vw] min-[689px]:w-[8rem] max-[689px]:w-[17vw] rounded-md max-[689px]:h-[13vw] min-[689px]:h-[5.2rem] top-[0.3rem] relative  "></motion.div>}
                                         <h1 key={index} className=" font-grotesk font-bold tracking-wide text-[18vw] max-[689px]:leading-[14vw]  min-[689px]:text-[8rem] min-[689px]:leading-[5.9rem] ">{item}</h1>
                                     </div>
                                 </div>

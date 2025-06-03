@@ -26,7 +26,7 @@ const Design = () => {
                     </div>
                 </div>
             </div>
-
+            <div className='w-full h-[0.1rem] bg-black my-10' />
         </div>
     )
 }

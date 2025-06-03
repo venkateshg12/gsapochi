@@ -6,6 +6,16 @@ const Navbar = () => {
     const [openNav, setOpenNav] = useState<boolean>(false);
     const colorOverlayRef = useRef<HTMLDivElement>(null);
 
+
+    const toggleScreenLock = () => {
+        setOpenNav((prev) => !prev); // Just toggle
+    };
+
+    // ✅ Handle scroll lock separately — RECOMMENDED
+    useEffect(() => {
+        document.body.style.overflow = openNav ? 'hidden' : '';
+    }, [openNav]);
+
     useEffect(() => {
         if (openNav) {
             // Animate background color from top to bottom
@@ -32,7 +42,7 @@ const Navbar = () => {
 
 
     return (
-        <div className={`relative ${openNav && "bg-[#9b2226]"}`}>
+        <div className={`relative ${openNav && "bg-[#9b2226]"} backdrop-blur-2xl fixed`}>
             <nav className={`w-full py-4 px-4 md:py-8 md:px-12 z-0 flex items-center  justify-between ${openNav && "border-2 border-b-white"} `}>
                 <div>
                     <Logo />
@@ -45,8 +55,8 @@ const Navbar = () => {
                     }
                 </div>
                 <div className="min-[990px]:hidden">
-                    <div onClick={() => setOpenNav(!openNav)}>
-                        <HamburgerMenu  className={`${openNav && 'bg-[#9b2226]'}`}/>
+                    <div onClick={toggleScreenLock}>
+                        <HamburgerMenu className={`${openNav && 'bg-[#9b2226]'}`} />
                     </div>
                 </div>
             </nav>

@@ -5,8 +5,11 @@ import Marquee from "./components/Marquee"
 import Navbar from "./components/Navbar"
 import Featured from "./components/Featured";
 import Design from "./components/Design"
+import Footer from "./components/Footer"
+import LocomotiveScroll from "locomotive-scroll"
 
 const App = () => {
+  const locomotiveScroll = new  LocomotiveScroll();
   return (
     <div>
       <div>
@@ -17,6 +20,7 @@ const App = () => {
         <Eyes />
         <Featured />
         <Design />
+        <Footer />
       </div>
     </div>
   )
