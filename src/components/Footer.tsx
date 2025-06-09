@@ -9,7 +9,7 @@ const Footer = () => {
             </div>
             <div>
                 <h1 className='font-grotesk min-[1303px]:text-[8vw] -mt-[5rem] py-10 max-[900px]:text-[4.5rem]  max-[1303px]:text-[8vw]'>PRESENTATIONS</h1>
-                <div className='flex justify-between font-neue-montreal max-[900px]:text-[1.6rem] max-[1303px]:text-[2vw] min-[1303px]:text-[1.3vw]'>
+                <div className='flex  font-neue-montreal max-[900px]:text-[1.6rem] max-[1303px]:text-[2vw] min-[1303px]:text-[1.3vw]'>
                     <div className='space-x-7'>
                         <h1>S:</h1>
                         <div className='flex flex-col underline gap-1'>
@@ -31,7 +31,7 @@ const Footer = () => {
                             <span>hello@ochi.design</span>
                         </div>
                     </div>
-                    <div className='flex flex-col min-[900px]:mt-auto  mr-auto'>
+                    <div className='flex flex-col min-[900px]:mt-auto  ml-auto'>
                         <h1>M:</h1>
                         <div className='flex flex-col gap-1 underline font-neue-montreal'>
                             {

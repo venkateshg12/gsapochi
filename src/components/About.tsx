@@ -1,9 +1,11 @@
 import React from 'react'
 
+const img = "https://ochi.design/wp-content/uploads/2022/05/Homepage-Photo-1326x939.jpg";
 const About = () => {
+
     return (
         <div >
-            <div className='w-full py-20 bg-[#CDEA68] -mt-7 rounded-2xl min-h-screen'>
+            <div className='w-full py-20 -z-10 bg-[#CDEA68] -mt-7 rounded-2xl min-h-screen'>
                 <h1 className='font-neue-montreal pb-[7rem] px-4 text-[6.5vw] leading-[6vw] md:text-6xl md:leading-[4rem]'>Ochi is a strategic presentation agency for forward-thinking businesses that need to raise funds, sell prod­ucts, ex­plain com­plex ideas, and hire great peo­ple.</h1>
                 <div className='w-full h-[0.1rem] bg-gray-700' />
                 <div className=' flex flex-col md:flex-row w-full justify-between py-20 md:px-20 px-5 max-[441px]:text-[5.5vw] md:text-[1.1rem] '>
@@ -29,7 +31,8 @@ const About = () => {
                     </button>
                     </div>
                     <div className='relative mx-auto'>
-                    <div className='md:w-[45vw] w-[90vw] h-[65vw] rounded-2xl md:h-[30vw] bg-red-500'>
+                    <div className='md:w-[45vw] w-[90vw] h-[65vw] rounded-2xl md:h-[30vw] cursor-pointer '>
+                        <img src={img} alt="" className='w-full h-full rounded-2xl' />
                     </div>
                     </div>
                 </div>

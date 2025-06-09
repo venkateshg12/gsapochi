@@ -5,13 +5,13 @@ import gsap from "gsap";
 const Navbar = () => {
     const [openNav, setOpenNav] = useState<boolean>(false);
     const colorOverlayRef = useRef<HTMLDivElement>(null);
+    const navRef = useRef(null);
 
 
     const toggleScreenLock = () => {
-        setOpenNav((prev) => !prev); // Just toggle
+        setOpenNav((prev) => !prev);
     };
 
-    // ✅ Handle scroll lock separately — RECOMMENDED
     useEffect(() => {
         document.body.style.overflow = openNav ? 'hidden' : '';
     }, [openNav]);
@@ -34,11 +34,46 @@ const Navbar = () => {
                 height: 0,
                 duration: 0.5,
                 ease: "power2.in",
-                backgroundColor: "transparent", // optional fade out
+                backgroundColor: "transparent",
                 overwrite: "auto"
             });
         }
     }, [openNav]);
+
+    useEffect(() => {
+        const navLinks = navRef.current?.querySelectorAll(".nav-link");
+        
+        navLinks.forEach((link: Element) => {
+            const underline = link.querySelector(".underline");
+            
+            gsap.set(underline, { scaleX : 0, transformOrigin: "left center"});
+            link.addEventListener('mouseenter', () => {
+                gsap.set(underline, {  transformOrigin: "left center"});
+                gsap.to(underline, {
+                    scaleX: 1,
+                    duration: 0.5,
+                    ease: "power2.out",
+                })
+            })
+            
+            link.addEventListener('mouseleave', () => {
+                gsap.set(underline, { transformOrigin: "right center"});
+                gsap.to(underline, {
+                    scaleX: 0,
+                    duration: 0.5,
+                    ease: "power2.out",
+                    transformOrigin: "right center",
+                })
+            })
+
+            return () => {
+                navLinks.forEach((link: Element) => {
+                    link.addEventListener('mouseenter', () => { });
+                    link.removeEventListener('mouseleave', () => { });
+                })
+            }
+        })
+    }, [])
 
 
     return (
@@ -47,10 +82,15 @@ const Navbar = () => {
                 <div>
                     <Logo />
                 </div>
-                <div className="flex gap-4 text-[1.1rem] max-[990px]:hidden">
+                <div ref={navRef} className="flex gap-4 text-[1.1rem] max-[990px]:hidden">
                     {
                         navItems.map((item, index) => (
-                            <a key={index} className={`font-neue-montreal ${index === 4 && 'pl-[17rem]'} cursor-pointer`}>{item}</a>
+                            <>
+                                <a key={index} className={`nav-link font-neue-montreal ${index === 4 && 'ml-[17rem]'} cursor-pointer relative inline-block`}>
+                                    {item}
+                                    <span className="underline absolute bottom-0 left-0 h-0.5 w-full bg-black "></span>
+                                </a>
+                            </>
                         ))
                     }
                 </div>
