@@ -51,3 +51,13 @@
         @apply w-full h-full flex flex-col md:flex-row  gap-10 md:gap-10 pb-10;
     }
 }
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); } /* Adjust the -5px for desired float height */
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 2s ease-in-out infinite; /* Adjust duration and timing function as needed */
+}

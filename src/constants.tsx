@@ -18,6 +18,11 @@ export const landItems: String[] = ["WE CREATE", "EYE-OPENING", "PRESENTATIONS"]
 
 export const img1 = "https://ochi.design/wp-content/uploads/2025/02/Salience_Website_cover-1326x1101.png";
 export const img2 = "https://ochi.design/wp-content/uploads/2024/08/CS_Website_1-1326x1101.png";
+export const img3 = "https://ochi.design/wp-content/uploads/2024/08/Frame-481692-1-1326x1101.png";
+export const img4 = "https://ochi.design/wp-content/uploads/2025/02/Fyde_Front-1-1326x1101.png";
+export const img5 = "https://ochi.design/wp-content/uploads/2025/02/Vise_Front-1-1326x1101.png";
+export const img6 = "https://ochi.design/wp-content/uploads/2022/06/Frame-3876-1326x1101.jpg";
+
 
 
 interface HamburgerMenuProps {
@@ -104,19 +109,40 @@ type props = {
 export const LeftImage = ({ title, image, buttons, cardIndex, handleHover, handleEnd, cards }: props) => {
   return (
     <>
-      <div className='cursor-pointer cardContainer md:w-1/2 w-[95vw] mx-auto'>
+      <div className='cursor-pointer cardContainer md:w-1/2  w-[95vw] mx-auto'>
         <div className='flex items-center gap-2 pb-5 relative'>
           <div className='w-3 h-3 bg-black rounded-full'></div>
           <span className='font-neue-montreal whitespace-nowrap'>{title}</span></div>
         <div className='flex flex-col gap-7'>
-          <motion.div onHoverStart={() => handleHover(cardIndex)} onHoverEnd={() => handleEnd(cardIndex)} className="card relative w-full h-full mx-auto">
-            <div className='absolute text-[9vw] font-grotesk top-1/2 z-50 translate-x-[65%]  overflow-hidden text-[#CDEA68] md:translate-x-[50%] md:right-0 -translate-y-[50%]'>
+          <motion.div onHoverStart={() => handleHover(cardIndex)} onHoverEnd={() => handleEnd(cardIndex)}
+            className={`card relative w-full   h-full mx-auto`}
+            whileHover={{
+              scale: 0.99,
+              y: [0, -10, 0],
+              zIndex: 60,
+              transition: {
+                scale: { duration: 0.3 },
+                y: {
+                  repeat: Infinity,
+                  duration: 2,
+                  ease: "easeInOut"
+                },
+              }
+            }}
+          >
+            <motion.div className='absolute text-[8vw] font-grotesk top-1/2  translate-x-[65%]  overflow-hidden text-[#CDEA68] md:translate-x-[50%] md:right-0 -translate-y-[50%] pointer-events-none'
+              initial={{ zIndex: 0 }}
+              whileHover={{
+                zIndex: 50,
+                transition: { duration: 0 }
+              }}
+            >
               {title.split("").map((item, index) => (<motion.span
-                initial={{ y: "100%" }}
+                initial={{ y: "100%", }}
                 animate={cards[cardIndex]}
-                transition={{ ease: [0.25, 1, 0.5, 1], delay: index * 0.08 }}
+                transition={{ ease: [0.25, 1, 0.5, 1], delay: index * 0.03 }}
                 key={index}
-                className='inline-block '>{item}</motion.span>))}</div>
+                className='inline-block pointer-events-none z-50'>{item}</motion.span>))}</motion.div>
             <img src={image} alt="" className='w-full rounded-3xl' />
           </motion.div>
           <div className='flex gap-2'>
@@ -141,14 +167,35 @@ export const RightImage = ({ title, image, buttons, cardIndex, handleHover, hand
           <span className='font-neue-montreal'>{title}</span>
         </div>
         <div className='flex flex-col gap-7'>
-          <motion.div onHoverStart={() => handleHover(cardIndex)} onHoverEnd={() => handleEnd(cardIndex)} className="card w-full h-full  mx-auto  relative">
-            <div className="absolute overflow-hidden  text-[9vw] whitespace-nowrap font-grotesk top-1/2 z-50 translate-x-[25%] -translate-y-[50%] md:-translate-x-[50%] text-[#CDEA68] md:left-0 ">
+          <motion.div onHoverStart={() => handleHover(cardIndex)} onHoverEnd={() => handleEnd(cardIndex)}
+            className={`card w-full h-full  mx-auto  relative`}
+            whileHover={{
+              scale: 0.99,
+              y: [0, -10, 0],
+              zIndex: 60,
+              transition: {
+                scale: { duration: 0.3 },
+                y: {
+                  repeat: Infinity,
+                  duration: 2,
+                  ease: "easeInOut"
+                },
+              }
+            }}
+          >
+            <motion.div className="absolute overflow-hidden  text-[8vw] whitespace-nowrap font-grotesk top-1/2 z-50 translate-x-[25%] -translate-y-[50%] md:-translate-x-[50%] text-[#CDEA68] md:left-0 pointer-events-none"
+              initial={{ zIndex: 0 }}
+              whileHover={{
+                zIndex: 50,
+                transition: { duration: 0 }
+              }}
+            >
               {title.split("").map((item, index) => (<motion.span
                 initial={{ y: "100%" }}
                 animate={cards[cardIndex]}
-                transition={{ ease: [0.25, 1, 0.5, 1], delay: index * 0.08 }}
+                transition={{ ease: [0.25, 1, 0.5, 1], delay: index * 0.03 }}
                 key={index}
-                className='inline-block'>{item}</motion.span>))}</div>
+                className='inline-block pointer-events-none z-50'>{item}</motion.span>))}</motion.div>
             <img src={image} alt="" className='w-full rounded-3xl' />
           </motion.div>
           <div className='flex gap-2 flex-wrap'>

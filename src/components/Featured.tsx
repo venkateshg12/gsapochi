@@ -1,24 +1,18 @@
-import { motion, useAnimation } from 'framer-motion';
-import { img1, img2, LeftImage, RightImage } from '../constants';
+import { useAnimation } from 'framer-motion';
+import { img1, img2, img3, img4, img5, img6, LeftImage, RightImage } from '../constants';
 import { useState } from 'react';
-const Featured = () => {
-    // const [isHovering, setIsHovering] = useState<boolean>(false);
-    // const cards = [useAnimation(), useAnimation()];
-    { /* const cards = Array(6).fill(null).map(() => useAnimation());
-    const handleHover = (index: number) => {
-        cards[index].start({ y: "0" });
-    }
-    const handleEnd = (index: number) => {
-        cards[index].start({ y: "100%" });
-    }*/}
 
-    const cards: AnimationControls[] = Array(6).fill(null).map(() => useAnimation());
+const Featured = () => {
+    const [isHover, setIsHover] = useState<boolean>(false);
+    const cards = Array(6).fill(null).map(() => useAnimation());
 
     const handleHover = (index: number): void => {
+        setIsHover(true);
         cards[index].start({ y: "0" });
     };
 
     const handleEnd = (index: number): void => {
+        setIsHover(false);
         cards[index].start({ y: "100%" });
     };
 
@@ -45,8 +39,8 @@ const Featured = () => {
                 </div>
                 <div className="cards">
                     <LeftImage
-                        title="AH2 & MATTHORN"
-                        image="https://ochi.design/wp-content/uploads/2024/08/Frame-481692-1-1326x1101.png"
+                        title="AH2&MATTHORN"
+                        image={img3}
                         buttons={["PITCH DESK"]}
                         cardIndex={2}
                         handleHover={handleHover}
@@ -55,7 +49,7 @@ const Featured = () => {
                     />
                     <RightImage
                         title="FYDE"
-                        image="https://ochi.design/wp-content/uploads/2025/02/Fyde_Front-1-1326x1101.png"
+                        image={img4}
                         buttons={["AUDIT", "COPYWRITING", "SALES DECK", "SLIDES DESIGN"]}
                         cardIndex={3}
                         handleHover={handleHover}
@@ -67,7 +61,7 @@ const Featured = () => {
                 <div className="cards">
                     <LeftImage
                         title="VISE"
-                        image="https://ochi.design/wp-content/uploads/2025/02/Vise_Front-1-1326x1101.png"
+                        image={img5}
                         buttons={["AGENCY", "COMPANY PRESENTATION"]}
                         cardIndex={4}
                         handleHover={handleHover}
@@ -76,7 +70,7 @@ const Featured = () => {
                     />
                     <RightImage
                         title="BLACK BOOK"
-                        image="https://ochi.design/wp-content/uploads/2022/06/Frame-3876-1326x1101.jpg"
+                        image={img6}
                         buttons={["INVESTOR DECK", "REDESIGN", "REVIEW"]}
                         cardIndex={5}
                         handleHover={handleHover}
