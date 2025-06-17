@@ -7,9 +7,14 @@ import Featured from "./components/Featured";
 import Design from "./components/Design"
 import Footer from "./components/Footer"
 import LocomotiveScroll from "locomotive-scroll"
+import { useEffect } from "react"
 
 const App = () => {
-  const locomotiveScroll = new LocomotiveScroll();
+  useEffect(() => {
+    const locomotiveScroll = new LocomotiveScroll();
+    return () => locomotiveScroll.destroy();
+
+  })
   return (
     <div>
       <div>

@@ -1,19 +1,18 @@
 import { useAnimation } from 'framer-motion';
 import { img1, img2, img3, img4, img5, img6, LeftImage, RightImage } from '../constants';
-import { useState } from 'react';
 
 const Featured = () => {
-    const [isHover, setIsHover] = useState<boolean>(false);
-    const cards = Array(6).fill(null).map(() => useAnimation());
+    const animations = Array(6).fill(null).map(() => useAnimation());
+    const cards = animations.map(() => ({ y: "100%" }));
 
     const handleHover = (index: number): void => {
-        setIsHover(true);
-        cards[index].start({ y: "0" });
+        animations[index].start({ y: "0" });
+        cards[index].y = "0";
     };
 
     const handleEnd = (index: number): void => {
-        setIsHover(false);
-        cards[index].start({ y: "100%" });
+        animations[index].start({ y: "100%" });
+        cards[index].y = "100%";
     };
 
     return (

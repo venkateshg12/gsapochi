@@ -93,7 +93,7 @@ export default HamburgerMenu;
 import { motion } from 'framer-motion';
 
 type CardAnimationState = {
-  y: string;
+  y?: string;
 };
 
 type props = {

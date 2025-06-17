@@ -5,7 +5,7 @@ import gsap from "gsap";
 const Navbar = () => {
     const [openNav, setOpenNav] = useState<boolean>(false);
     const colorOverlayRef = useRef<HTMLDivElement>(null);
-    const navRef = useRef(null);
+    const navRef = useRef<HTMLDivElement>(null);
 
 
     const toggleScreenLock = () => {
@@ -42,22 +42,22 @@ const Navbar = () => {
 
     useEffect(() => {
         const navLinks = navRef.current?.querySelectorAll(".nav-link");
-        
+        if (!navLinks) return;
         navLinks.forEach((link: Element) => {
             const underline = link.querySelector(".underline");
-            
-            gsap.set(underline, { scaleX : 0, transformOrigin: "left center"});
+
+            gsap.set(underline, { scaleX: 0, transformOrigin: "left center" });
             link.addEventListener('mouseenter', () => {
-                gsap.set(underline, {  transformOrigin: "left center"});
+                gsap.set(underline, { transformOrigin: "left center" });
                 gsap.to(underline, {
                     scaleX: 1,
                     duration: 0.5,
                     ease: "power2.out",
                 })
             })
-            
+
             link.addEventListener('mouseleave', () => {
-                gsap.set(underline, { transformOrigin: "right center"});
+                gsap.set(underline, { transformOrigin: "right center" });
                 gsap.to(underline, {
                     scaleX: 0,
                     duration: 0.5,
