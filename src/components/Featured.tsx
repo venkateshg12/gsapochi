@@ -1,18 +1,18 @@
 import { useAnimation } from 'framer-motion';
-import { img1, img2, img3, img4, img5, img6, LeftImage, RightImage } from '../constants';
+import { img1, img2, img3, img4, img5, img6, LeftImage, RightImage, type CardAnimationState } from '../constants';
 
 const Featured = () => {
-    const animations = Array(6).fill(null).map(() => useAnimation());
-    const cards = animations.map(() => ({ y: "100%" }));
+
+
+    const cards= Array(6).fill(null).map(() => useAnimation()) as CardAnimationState[]
+
 
     const handleHover = (index: number): void => {
-        animations[index].start({ y: "0" });
-        cards[index].y = "0";
+        cards[index].start({ y: "0" });
     };
 
     const handleEnd = (index: number): void => {
-        animations[index].start({ y: "100%" });
-        cards[index].y = "100%";
+        cards[index].start({ y: "100%" });
     };
 
     return (

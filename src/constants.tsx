@@ -91,10 +91,9 @@ const HamburgerMenu: React.FC<HamburgerMenuProps> = ({
 export default HamburgerMenu;
 
 import { motion } from 'framer-motion';
+import type { AnimationControls } from 'framer-motion';
 
-type CardAnimationState = {
-  y?: string;
-};
+export type CardAnimationState = AnimationControls;
 
 type props = {
   title: string,
