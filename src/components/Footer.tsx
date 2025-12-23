@@ -14,7 +14,7 @@ const Footer = () => {
                         <div className='flex flex-col underline gap-1'>
                             {
                                 ["Instagram", "Behance", "Facebook", "Linkedin"].map((item, index) => (
-                                    <h1 key={index}>{item}</h1>
+                                    <h1 key={index} className='cursor-pointer'>{item}</h1>
                                 ))
                             }
                         </div>
@@ -35,7 +35,7 @@ const Footer = () => {
                         <div className='flex flex-col gap-1 underline font-neue-montreal'>
                             {
                                 ["Home", "Services", "Our work", "About us", "Insights", "Contact us"].map((item, index) => (
-                                    <h1 key={index}>{item}</h1>
+                                    <h1 key={index} className='cursor-pointer'>{item}</h1>
                                 ))
                             }
                         </div>
